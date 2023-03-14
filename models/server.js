@@ -22,7 +22,7 @@ class Server {
     }
 
     routes(){
-       this.app.get('/resume',(req,res)=>{
+       this.app.get('/',(req,res)=>{
             res.render('home', {
                 title: 'Resume',
                 name: 'Jose Portillo'
