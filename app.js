@@ -1,30 +1,6 @@
-const express = require('express')
+require('dotenv').config()
+const Server = require('./models/server')
 
-const app = express()
+const server = new Server()
 
-//1. primer linea agregada luego de instalar hbs /hablerbar
-app.set('view engine', 'hbs')
-
-app.use(express.static('public'))
-
-app.get('/resume',(req,res)=>{
-    res.render('home', {
-        title: 'Resume',
-        name: 'Jose Portillo'
-    })
-})
-
-app.get('/courses',(req,res)=>{
-    res.render('courses', {
-        title: 'Resume',
-        name: 'Jose Portillo'
-    })
-})
-
-app.get('/elements',(req,res)=>{
-    res.sendFile(__dirname+'/public/elements.html')
-})
-
-app.listen(8080, () =>{
-    console.log('Servidor escuchando en el puerto http:localhost:8080');
-})
+server.listen()
